@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc
+    username:
+    password:
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+order.topic.name: order-topic
+
+auto.create.topics.enable: true
+
+server:
+  port: 9090
