@@ -2,8 +2,8 @@ package com.saga.msorder.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.saga.msorder.entity.Order;
-import com.saga.msorder.repo.OrderCRUD;
+import com.saga.msorder.bean.Order;
+import com.saga.msorder.repository.OrderCRUD;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -17,28 +17,27 @@ public class OrderService {
     @Autowired
     OrderCRUD orderCRUD;
 
+    @Autowired
+    KafkaTemplate<String, String> kafkaTemplate;
+
     @Value("${order.topic.name}")
     private String topicName;
 
-    @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
-
     ObjectMapper om = new ObjectMapper();
 
-    public Order createOrder(Order order) {
-        order = orderCRUD.save(order);
+    public Order saveOrder(Order order) {
         order.setStatus("CREATED");
-        String message = null;
+        order = orderCRUD.save(order);
         try {
-            message = om.writeValueAsString(order);
+            String orderStr = om.writeValueAsString(order);
+            kafkaTemplate.send(topicName, orderStr);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        kafkaTemplate.send(topicName, message);
         return order;
     }
 
-    public List<Order> getAllOrders() {
+    public List<Order> getOrders() {
         List<Order> orders = (List<Order>) orderCRUD.findAll();
         return orders;
     }

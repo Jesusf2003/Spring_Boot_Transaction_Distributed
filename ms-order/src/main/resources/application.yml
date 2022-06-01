@@ -1,17 +1,26 @@
 spring:
   datasource:
-    url: jdbc
-    username:
-    password:
+    url: jdbc:postgresql://<localhost>:5432/<database>
+    username: <user>
+    password: <pswd>
+  jpa:
+    generate-ddl: true
+    hibernate:
+      show-sql: true
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQL81Dialect
+    show-sql: true
   kafka:
     producer:
-      bootstrap-servers: localhost:9092
+      bootstrap-servers: <servers>
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
-order.topic.name: order-topic
-
 auto.create.topics.enable: true
 
-server:
-  port: 9090
+server.port: 9090
+
+order.topic.name: <topic>

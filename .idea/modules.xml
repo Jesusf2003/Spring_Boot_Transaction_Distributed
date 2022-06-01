@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Spring_Boot_Transaction_Distributed.iml" filepath="$PROJECT_DIR$/.idea/Spring_Boot_Transaction_Distributed.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ms-order/ms-order.iml" filepath="$PROJECT_DIR$/ms-order/ms-order.iml" />
     </modules>
   </component>
 </project>
