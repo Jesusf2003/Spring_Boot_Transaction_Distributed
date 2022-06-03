@@ -22,7 +22,6 @@ public class TransactionEventConsumer implements EventConsumer<TransactionEvent>
     @Autowired
     private final Scheduler jdbcScheduler;
 
-
     public void consumeEvent(TransactionEvent event) {
         Mono.fromRunnable(
                         () -> orderPurchaseRepository.findById(event.getOrderId())

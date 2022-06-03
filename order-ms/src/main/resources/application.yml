@@ -1,9 +1,9 @@
 server:
-  port: 9092
+  port: 9091
 
 spring:
   kafka:
-    bootstrap-servers: <user>
+    bootstrap-servers: sulky-01.srvs.cloudkafka.com:9094,sulky-02.srvs.cloudkafka.com:9094,sulky-03.srvs.cloudkafka.com:9094;
     jaas:
       enabled: true
     properties:
@@ -11,9 +11,9 @@ spring:
         protocol: SASL_SSL
       sasl:
         mechanism: SCRAM-SHA-256
-        jaasl.config: org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="pswd";
+        jaasl.config: org.apache.kafka.common.security.scram.ScramLoginModule required username="<user>" password="<password>";
     consumer:
-      group-id: <topic>
+      group-id: <id>
       auto-offset-reset: latest
       properties:
         spring:
@@ -29,18 +29,20 @@ spring:
         definition: orderPurchaseEventPublisher;transactionEventProcessor;
       bindings:
         orderPurchaseEventPublisher-out-0:
-          destination: <topic>
+          destination: ni14yn7m-order
         transactionEventProcessor-in-0:
-          destination: <topic>
+          destination: ni14yn7m-transactions
   datasource:
-    url: jdbc:h2:mem:mydb;DB_CLOSE_DELAY=-1
-    driverClassName: org.h2.Driver
-    username: sa
-    password:
-      maximum-pool-size: 100
+    url: jdbc:postgresql://<host>:5432/<database>
+    driver-class-name: org.postgresql.Driver
+    username: <user>
+    password: <password>
   jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQL81Dialect
     hibernate:
-      ddl-auto: create
-    database-platform: org.hibernate.dialect.H2Dialect
-    database: H2
+      show-sql: true
+      ddl-auto: update
     generate-ddl: true

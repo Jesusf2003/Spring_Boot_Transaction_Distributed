@@ -12,6 +12,8 @@
         <option value="$PROJECT_DIR$/ms-user/pom.xml" />
         <option value="$PROJECT_DIR$/ms-order/pom.xml" />
         <option value="$PROJECT_DIR$/ms-kafka/pom.xml" />
+        <option value="$PROJECT_DIR$/order-service/pom.xml" />
+        <option value="$PROJECT_DIR$/payment-service/pom.xml" />
       </list>
     </option>
   </component>

@@ -7,12 +7,14 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.24/13a394eed5c4f9efb2a6d956e2086f1d81e857d9/lombok-1.18.24.jar" />
         </processorPath>
-        <module name="payment-ms.main" />
+        <module name="order-ms.main" />
       </profile>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="order-service" />
+        <module name="payment-service" />
         <module name="ms-order" />
         <module name="ms-user" />
         <module name="ms-kafka" />
@@ -21,8 +23,6 @@
     <bytecodeTargetLevel>
       <module name="ms-payment" target="11" />
       <module name="ms-transaction" target="1.5" />
-      <module name="order-service" target="11" />
-      <module name="payment-service" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
