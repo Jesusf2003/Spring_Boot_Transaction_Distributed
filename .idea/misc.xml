@@ -3,7 +3,9 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/order-ms" />
+    <file type="web" url="file://$PROJECT_DIR$/order-service" />
     <file type="web" url="file://$PROJECT_DIR$/payment-ms" />
+    <file type="web" url="file://$PROJECT_DIR$/payment-service" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">

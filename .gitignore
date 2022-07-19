@@ -35,5 +35,8 @@ out/
 
 ### VS Code ###
 .vscode/
-build\
-build\
+
+### Project ###
+/kafka-data/
+/payment-service/build/
+/order-service/build/

@@ -5,19 +5,21 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/order-ms" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/order-service" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../../../../gradle-7.5" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/order-ms" />
+            <option value="$PROJECT_DIR$/order-service" />
           </set>
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/payment-ms" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/payment-service" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../../../../gradle-7.5" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/payment-ms" />
+            <option value="$PROJECT_DIR$/payment-service" />
           </set>
         </option>
       </GradleProjectSettings>
